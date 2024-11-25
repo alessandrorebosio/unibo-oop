@@ -41,13 +41,47 @@ public class BadIOGUI {
     public BadIOGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
+
+        /*
+         * PART 1
+         */
+        final JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS));
+        canvas.add(panel, BorderLayout.CENTER);
+
         final JButton write = new JButton("Write on file");
-        canvas.add(write, BorderLayout.CENTER);
+        panel.add(write);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        /*
+         * PART 2
+         */
+        final JButton read = new JButton("Read on file");
+        panel.add(read);
+
         /*
          * Handlers
          */
+        read.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                /*
+                 * PART 3
+                 */
+                try {
+                    final List<String> lines = Files.readAllLines(new File(PATH).toPath());
+                    for (final String line : lines) {
+                        System.out.println("READ: " + line); // NOPMD: allowed as this is just an exercise
+                    }
+                } catch (final IOException ex) {
+                    errorMessage(frame, ex);
+                }
+            }
+
+        });
+
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
@@ -59,13 +93,19 @@ public class BadIOGUI {
                  * your UI becomes completely unresponsive.
                  */
                 try (PrintStream ps = new PrintStream(PATH, StandardCharsets.UTF_8)) {
-                    ps.print(randomGenerator.nextInt());
-                } catch (IOException e1) {
-                    JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
-                    e1.printStackTrace(); // NOPMD: allowed as this is just an exercise
+                    final var number = randomGenerator.nextInt();
+                    ps.print(number);
+                    System.out.println("WRITE: " + number); // NOPMD: allowed as this is just an exercises
+                } catch (final IOException ex) {
+                    errorMessage(frame, ex);
                 }
             }
         });
+    }
+
+    private void errorMessage(final JFrame frame, final Exception e) {
+        JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace(); // NOPMD: allowed as this is just an exercise
     }
 
     private void display() {
@@ -91,6 +131,7 @@ public class BadIOGUI {
          * OK, ready to push the frame onscreen
          */
         frame.setVisible(true);
+        frame.pack();
     }
 
     /**
@@ -99,6 +140,6 @@ public class BadIOGUI {
      * @param args ignored
      */
     public static void main(final String... args) {
-       new BadIOGUI().display();
+        new BadIOGUI().display();
     }
 }
