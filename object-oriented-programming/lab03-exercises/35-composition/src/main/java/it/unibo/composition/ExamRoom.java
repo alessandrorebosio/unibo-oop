@@ -7,11 +7,10 @@ public class ExamRoom {
     private final boolean networkAvailable;
 
     public ExamRoom(
-        final int nSeats,
-        final String description,
-        final boolean isProjectorAvailable,
-        final boolean isNetworkAvailable
-    ) {
+            final int nSeats,
+            final String description,
+            final boolean isProjectorAvailable,
+            final boolean isNetworkAvailable) {
         this.seatsCount = nSeats;
         this.desc = description;
         this.projectorAvailable = isProjectorAvailable;
@@ -36,10 +35,10 @@ public class ExamRoom {
 
     public String toString() {
         return "ExamRoom ["
-            +"seatsCount=" + this.seatsCount
-            + ", description=" + this.desc
-            + ", isProjectorAvailable=" + this.projectorAvailable
-            + ", isNetworkAvailable=" + this.networkAvailable
-            + "]";
+                + "seatsCount: " + this.seatsCount
+                + ", description: " + this.desc
+                + ", isProjectorAvailable: " + this.projectorAvailable
+                + ", isNetworkAvailable: " + this.networkAvailable
+                + "]";
     }
 }

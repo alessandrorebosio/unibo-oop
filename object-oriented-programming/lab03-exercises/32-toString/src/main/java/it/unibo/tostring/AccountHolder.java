@@ -25,8 +25,7 @@ public class AccountHolder {
     }
 
     public String toString() {
-        // Should print name, surname, and account id.
-        return null;
+        return "Student [name: " + this.name + ", surname: " + this.surname + ", userID: " + this.userID + "]";
     }
 
     public static void main(final String[] args) {

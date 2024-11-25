@@ -10,12 +10,11 @@ public class Student implements User {
     private final String password;
 
     public Student(
-        final int id,
-        final String name,
-        final String surname,
-        final String password,
-        final int matriculationYear
-    ) {
+            final int id,
+            final String name,
+            final String surname,
+            final String password,
+            final int matriculationYear) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -41,11 +40,11 @@ public class Student implements User {
 
     public String toString() {
         return "Student ["
-            + "name=" + this.name
-            + ", surname=" + this.surname
-            + ", id=" + this.id
-            + ", matriculationYear=" + this.matriculationYear
-            + "]";
+                + "name=" + this.name
+                + ", surname=" + this.surname
+                + ", id=" + this.id
+                + ", matriculationYear=" + this.matriculationYear
+                + "]";
     }
 
     public String getUsername() {
