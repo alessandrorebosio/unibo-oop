@@ -3,20 +3,38 @@ package it.unibo.arrays;
 class PlayWithSmartphoneArrays {
 
     static int search(Smartphone[] array, String brand) {
-        return 0;
+        int counter = 0;
+        for (final Smartphone smarphone : array) {
+            if (smarphone.getBrand() == brand) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     static int search(Smartphone[] array, boolean hasNFC, boolean hasGPS) {
-        return 0;
+        int counter = 0;
+        for (final Smartphone smarphone : array) {
+            if (smarphone.hasNFC() == hasNFC && smarphone.hasGPS() == hasGPS) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     static int search(Smartphone[] array, int nCPUs, int sdSize, boolean has3G) {
-        return 0;
+        int counter = 0;
+        for (final Smartphone smarphone : array) {
+            if (smarphone.getCPUs() == nCPUs && smarphone.getSdSize() == sdSize && smarphone.has3G() == has3G) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     public static void main(String[] args) {
         final Smartphone[] phones = new Smartphone[5];
-        
+
         // 1) Creare lo smarthpone HTC One ram:1024 sdSize
         phones[0] = new Smartphone("HTC", "One", 1024);
 
