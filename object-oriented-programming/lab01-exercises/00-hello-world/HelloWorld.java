@@ -1,6 +1,6 @@
 /*
- * Esempio di prima applicazione
- */
+* Esempio di prima applicazione
+*/
 class HelloWorld {
     /*
      * Main dell'applicazione
@@ -9,6 +9,6 @@ class HelloWorld {
         /*
          * Stampa "Hello World!" in standard output
          */
-        System.out.println("Hello, world!");
+        System.out.println("Hello, world!" + ((50 * 50) + 50));
     }
 }
