@@ -12,11 +12,12 @@ public final class TestPerformance {
 
     private static final int ELEMS = 1_000_000;
 
-    private TestPerformance() { }
+    private TestPerformance() {
+    }
 
     /**
      * @param s
-     *            ignored
+     *          ignored
      */
     public static void main(final String... s) {
         /*
@@ -39,13 +40,12 @@ public final class TestPerformance {
         time = System.nanoTime() - time;
         final var millis = TimeUnit.NANOSECONDS.toMillis(time);
         System.out.println(// NOPMD
-            "Converting "
-                + set.size()
-                + " ints to String and inserting them in a Set took "
-                + time
-                + "ns ("
-                + millis
-                + "ms)"
-        );
+                "Converting "
+                        + set.size()
+                        + " ints to String and inserting them in a Set took "
+                        + time
+                        + "ns ("
+                        + millis
+                        + "ms)");
     }
 }
