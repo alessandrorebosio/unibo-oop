@@ -3,3 +3,21 @@
 
 # Ignore Visual Studio Code configuration folder
 .vscode/
+
+# Compiled or temporary files in bin directories
+**/bin/
+
+# Gradle directories
+.gradle/
+
+# Build directories used for compilation
+**/build/
+
+# Libraries and distributed package files (JAR, WAR, EAR)
+**/lib/
+
+# Generated log files
+**/log/
+
+# Java compilation output files
+*.class
