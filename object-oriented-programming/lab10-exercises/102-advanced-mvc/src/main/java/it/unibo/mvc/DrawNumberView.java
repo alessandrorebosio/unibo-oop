@@ -11,9 +11,17 @@ public interface DrawNumberView {
     void setObserver(DrawNumberViewObserver observer);
 
     /**
-     * This method is called before the UI is used. It should finalize its status (if needed).
+     * This method is called before the UI is used. It should finalize its status
+     * (if needed).
      */
     void start();
+
+    /**
+     * This methos is called if there is an execption.
+     * 
+     * @param message
+     */
+    void displayError(String message);
 
     /**
      * Informs the user that the inserted number is not correct.
